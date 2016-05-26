@@ -1,0 +1,19 @@
+<div ng-controller="articleController">
+
+    <div class="container">
+        <div class="col-sm-8 col-sm-offset-2">
+            <h3>Article List</h3>
+            <div class="row">
+                <div ng-repeat="cat in waitingForArticleReview">
+                    <h4>Article Name: {{cat.artical_name}}</h4>
+                    <h5>Author Name:{{cat.name}}</h5>
+                    <h5>Category:{{cat.category_name}}</h5>
+                    <h6>Created Date: {{ cat.created_date}}</h6>
+                    <p> {{cat.content}} </p>
+                    <p> <a href="#/reviewArticle/{{cat.artical_id}}" >View</a> </p></div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

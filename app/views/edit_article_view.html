@@ -1,0 +1,38 @@
+<div  ng-controller="articleController">
+
+    <div class="container">
+        <div class="col-sm-4 col-sm-offset-2">
+            <div class="page-header"><h3>Edit Article</h3></div>
+            <!-- FORM -->
+            <form name="addArticleForm" method="post" ng-submit="updateArticle()">
+                <span ng-show="successMessage">{{successMessage}}</span>
+                <div class="form-group">
+                    <label>Article Name:</label>
+                    <label>{{article.articleName}}</label>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label>Category: </label>
+                    <label>{{article.category}}</label>
+                </div>
+                <div class="form-group">
+                    <label>Content</label>
+                    <textarea type="text" name="content" class="form-control" ng-model="article.content" required></textarea>
+                    <span class="errorMessage"  ng-show="addArticleForm.content.$error.required && addArticleForm.content.$dirty">Please enter Content</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+                    <status></status>
+
+                    <!--<input type="text" name="name" class="form-control" ng-model="article.name" required>-->
+                    <span class="errorMessage"  ng-show="addArticleForm.articleStatus.$error.required && addArticleForm.articleStatus.$dirty">Please Select status</span>
+                </div>
+
+                <button type="button" ng-click="reset()" class="btn btn-default">Reset</button>
+                <button type="submit"  class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
