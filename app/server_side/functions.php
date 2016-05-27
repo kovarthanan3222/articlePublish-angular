@@ -56,16 +56,12 @@ class Database {
         }
         $Stset = implode(", ", $set);
         $sql = "UPDATE $tableName SET $Stset WHERE $where";
-        if ($result = mysqli_query($this->db, $sql) === true) {
-            if (mysqli_affected_rows($this->db)) {
-                
-            } else {
-                echo "Contact does not exist<br>";
-            }
+        $result = mysqli_query($this->db, $sql);
+        if ($result) {
+            return true;
         } else {
-            echo "Error to update";
+            return false;
         }
-        return $result;
     }
 
     /**

@@ -15,18 +15,24 @@
     </head>
     <body>
 
-
+        <div ng-controller="sessionController">
         <ul class="menu">
 
             <li><a href="#/articleList">Home</a></li>
-            <li ><a href="#/addArticle" >Add Article</a></li>
-            <li><a href="#/register" >Register</a></li>
-            <li><a href="#/myArticle" >My Article</a></li>
-            <li><a href="#/waitingForReview" >Waiting For Approve</a></li>
-            <li><a href="#/login" >Login</a></li>
-
+            <li ng-show="isAuthor"><a href="#/addArticle" >Add Article</a></li>
+            <li ng-hide="loginStatus"><a href="#/register" >Register</a></li>
+            <li ng-show="isAuthor"><a href="#/myArticle" >My Article</a></li>
+            <li ng-show="isAdminUser"><a href="#/waitingForReview" >Waiting For Approve</a></li>
+            <li ng-hide="loginStatus"><a href="#/login" >Login</a></li>
+            
+            <ul class="menu" style="float:right">
+            <li ng-show="loginStatus"><a  >{{loggedUserName}}</a></li>
+            <li ng-show="loginStatus" ng-click="logout()"><a  >Logout</a></li>
+            </ul>
         </ul>
-        <span >{{session}}</span>
+        
+            
+        </div>
         <div ng-view></div>
 
         <script src="bower_components/angular/angular.js"></script>

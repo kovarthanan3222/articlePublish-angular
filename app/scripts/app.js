@@ -30,19 +30,19 @@ articleApp.config(['$routeProvider', function($routeProvider) {
   })
   .when('/myArticle', {
    templateUrl: 'views/my_article_list_view.html',
-   controller: 'articleController'
+   controller: 'myArticleController'
   })
   .when('/waitingForReview', {
    templateUrl: 'views/waiting_for_review_list_view.html',
-   controller: 'articleController'
+   controller: 'sendForReviewController'
   })
   .when('/editArticle/:articleId', {
    templateUrl: 'views/edit_article_view.html',
-   controller: 'articleController'
+   controller: 'editArticleController'
   })
   .when('/reviewArticle/:articleId', {
    templateUrl: 'views/update_article_status_view.html',
-   controller: 'articleController'
+   controller: 'viewSingleArticleController'
   })
   .otherwise({
    redirectTo: '/articleList'
